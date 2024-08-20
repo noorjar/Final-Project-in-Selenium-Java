@@ -2,12 +2,15 @@ package homepage;
 
 import java.time.Duration;
 import java.util.Date;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -16,13 +19,14 @@ public class AlmosaferClass {
 	String WebSiteLink = "https://www.almosafer.com/en";
 	WebDriver driver = new ChromeDriver();
 	Date TodayDate =  new Date();
+	Random rand = new Random();
 	//_______________________________________________________________________________________________________________________
 	@BeforeTest
 	public void mysetup() {
 		driver.manage().window().maximize();
 		driver.get(WebSiteLink);
 		driver.findElement(By.className("cta__saudi")).click();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 	//_______________________________________________________________________________________________________________________
 	@Test(priority = 1,enabled = true )
@@ -76,34 +80,73 @@ public class AlmosaferClass {
 	//_______________________________________________________________________________________________________________________
 	@Test(priority = 6,enabled = true )
 	public void FlightDepartureDate() {
-		 WebElement DepartureDate =driver.findElement(By.cssSelector("div[class='sc-iHhHRJ sc-kqlzXE blwiEW'] span[class='sc-cPuPxo LiroG']"));
+		  WebElement DepartureDate =driver.findElement(By.cssSelector("div[class='sc-iHhHRJ sc-kqlzXE blwiEW'] span[class='sc-cPuPxo LiroG']"));
 		  String Actual=DepartureDate.getText().trim();
 		  int Expected = TodayDate.getDate()+1;     
-	        String ExpectedString = String.valueOf(Expected);
+	      String ExpectedString = String.valueOf(Expected);
 		  Assert.assertEquals(Actual,ExpectedString);
 	}
 	//_______________________________________________________________________________________________________________________
 	@Test(priority = 6,enabled = true )
 	public void FlightReturnDate() {
 		 WebElement ReturnDate =driver.findElement(By.cssSelector("div[class='sc-iHhHRJ sc-OxbzP edzUwL'] span[class='sc-cPuPxo LiroG']"));
-		  String Actual=ReturnDate.getText().trim();
-		  int Expected = TodayDate.getDate()+2;     
-	        String ExpectedString = String.valueOf(Expected);
-		  Assert.assertEquals(Actual,ExpectedString);
+		 String Actual=ReturnDate.getText().trim();
+		 int Expected = TodayDate.getDate()+2;     
+	     String ExpectedString = String.valueOf(Expected);
+		 Assert.assertEquals(Actual,ExpectedString);
 	}
 	//_______________________________________________________________________________________________________________________
+	@Test(priority = 7,enabled = true)
+	public void LanguageSwitchTest(){
+		String LanguagesURLs []= {"https://www.almosafer.com/en?ncr=1","https://www.almosafer.com/ar?ncr=1"};
+		int RandomURL = rand.nextInt(LanguagesURLs.length);
+		driver.get(LanguagesURLs[RandomURL]);
+	}
+	//_______________________________________________________________________________________________________________________
+	@Test(priority = 9,enabled = true)
+	public void HotelSearchTest() throws InterruptedException {
+		WebElement HotelsTab = driver.findElement(By.id("uncontrolled-tab-example-tab-hotels"));
+		HotelsTab.click();
+		WebElement HotelSearchTab = driver.findElement(By.xpath("//input[@data-testid='AutoCompleteInput']"));
+		HotelSearchTab.click();
+		WebElement SearchButton = driver.findElement(By.xpath("//button[@data-testid='HotelSearchBox__SearchButton']"));
+		///////////////////////////////////////////////////////////////////////////////////////////////////////
+		String Language =  driver.findElement(By.xpath("//a[@data-testid='Header__LanguageSwitch']")).getText();
+		String [] AreasForEnglish = {"Dubai","Jeddah","Riyadh"};
+		String [] AreasForArabic = {"دبي","جده"};
+		int RandomEngArea = rand.nextInt(AreasForEnglish.length);
+		int RandomArabArea = rand.nextInt(AreasForArabic.length);
 	
-	@Test(priority = 7,enabled = false )
-	public void InitialLoadTest() {}
+		
+		if(Language.equals("العربية")) {
+			HotelSearchTab.sendKeys(AreasForEnglish[RandomEngArea]);
+			SearchButton.click();
+			Thread.sleep(5000);
+			WebElement FirstHotel = driver.findElement(By.xpath("//img[@alt='Image']"));
+			((JavascriptExecutor) driver).executeScript("arguments[0].click()", FirstHotel);
+
+		}
+		else
+			if (Language.equals("English")){
+			HotelSearchTab.sendKeys(AreasForArabic[RandomArabArea]);
+			SearchButton.click();
+			Thread.sleep(5000);
+			WebElement FirstHotel = driver.findElement(By.xpath("//img[@alt='Image']"));
+			((JavascriptExecutor) driver).executeScript("arguments[0].click()", FirstHotel);
+			//to get Language we can use driver.getCurrentUrl().contains();
+		}	
+	}
 	
 	
 	
 	
-	@Test(priority = 8,enabled = false)
-	public void LanguageSwitchTest() {}
 	
-	@Test(priority = 9,enabled = false)
-	public void HotelSearchTest() {}
+	
+	
+	
+	
+	
+	
 	@Test(priority = 10,enabled = false)
 	public void RoomSelectionTes() {}
 	

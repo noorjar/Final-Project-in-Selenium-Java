@@ -6,7 +6,7 @@
       <class name="homepage.AlmosaferClass">
         <methods>
           <include name="mysetup"/>
-          <include name="FlightDepartureDate"/>
+          <include name="HotelSearchTest"/>
         </methods>
       </class> <!-- homepage.AlmosaferClass -->
     </classes>
