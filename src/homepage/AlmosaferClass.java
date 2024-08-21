@@ -1,16 +1,21 @@
 package homepage;
 
+import java.nio.file.WatchEvent;
 import java.time.Duration;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -104,7 +109,7 @@ public class AlmosaferClass {
 	}
 	//_______________________________________________________________________________________________________________________
 	@Test(priority = 9,enabled = true)
-	public void HotelSearchTest() throws InterruptedException {
+	public void HotelSearchTest()  {
 		WebElement HotelsTab = driver.findElement(By.id("uncontrolled-tab-example-tab-hotels"));
 		HotelsTab.click();
 		WebElement HotelSearchTab = driver.findElement(By.xpath("//input[@data-testid='AutoCompleteInput']"));
@@ -116,45 +121,98 @@ public class AlmosaferClass {
 		String [] AreasForArabic = {"دبي","جده"};
 		int RandomEngArea = rand.nextInt(AreasForEnglish.length);
 		int RandomArabArea = rand.nextInt(AreasForArabic.length);
-	
+		
+		System.out.println(Language+"******");
+		
 		
 		if(Language.equals("العربية")) {
 			HotelSearchTab.sendKeys(AreasForEnglish[RandomEngArea]);
-			SearchButton.click();
-			Thread.sleep(5000);
-			WebElement FirstHotel = driver.findElement(By.xpath("//img[@alt='Image']"));
-			((JavascriptExecutor) driver).executeScript("arguments[0].click()", FirstHotel);
+			//SearchButton.click();
 
 		}
 		else
 			if (Language.equals("English")){
 			HotelSearchTab.sendKeys(AreasForArabic[RandomArabArea]);
-			SearchButton.click();
-			Thread.sleep(5000);
-			WebElement FirstHotel = driver.findElement(By.xpath("//img[@alt='Image']"));
-			((JavascriptExecutor) driver).executeScript("arguments[0].click()", FirstHotel);
+			//SearchButton.click();
 			//to get Language we can use driver.getCurrentUrl().contains();
+			
 		}	
+		WebElement SearchContainer =driver.findElement(By.cssSelector(".sc-phbroq-4.gGwzVo.AutoComplete__List"));
+		List<WebElement> SearchLista =SearchContainer.findElements(By.tagName("li"));
+		WebElement FirstResult = SearchLista.get(1) ;
+		FirstResult.click();
+		SearchButton.click();
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@Test(priority = 10,enabled = false)
-	public void RoomSelectionTes() {}
-	
-	@Test(priority = 11,enabled = false)
-	public void SearchButtonFunctionality() {}		
-	@Test(priority = 12,enabled = false)
-	public void SearchResultsPageLoad() {}
-	@Test(priority = 13,enabled = false)
-	public void PriceSortingTest() {}
+	//_______________________________________________________________________________________________________________________
+	@Test(priority = 10,enabled = true)
+	public void RoomSelectionTest() {
+		//11111111111111111111 
+		String array [] = {"option[value='A']","option[value='B']"};
+		int RandomRoomNumber  = rand.nextInt(array.length);
+		System.out.println(array[RandomRoomNumber]+"*****");
+		WebElement Rooms = driver.findElement(By.cssSelector(array[RandomRoomNumber]));
+		Rooms.click();
+		/*22222222222222222222
+		WebElement SelectTag = driver.findElement(By.xpath("//select[@data-testid='HotelSearchBox__ReservationSelect_Select']"));
+		Select select = new Select(SelectTag);
+		List<WebElement>AllOptions =  select.getOptions();
+		List<WebElement> FirstTwoOptions = AllOptions.subList(0,2);
+		int RandomNumber =rand.nextInt(FirstTwoOptions.size());
+		FirstTwoOptions.get(RandomNumber).click();
+		*/
+		/*33333333333333333333
+		WebElement SelectTag = driver.findElement(By.xpath("//select[@data-testid='HotelSearchBox__ReservationSelect_Select']"));
+		Select select = new Select(SelectTag);
+		int RandomNumber = rand.nextInt(2);
+		select.selectByIndex(RandomNumber);
+	*/
+	}
+	//_______________________________________________________________________________________________________________________
+	@Test(priority = 11,enabled = true)
+	public void SearchButtonFunctionality() {
+		WebElement SearchButton = driver.findElement(By.xpath("//button[@data-testid='HotelSearchBox__SearchButton']"));
+		SearchButton.click();
+	}		
+	//_______________________________________________________________________________________________________________________
+	@Test(priority = 12,enabled = true)
+	public void SearchResultsPageLoad() throws InterruptedException {
+		 Thread.sleep(10000);//in this case we can use Thread.sleep
+		String Language =  driver.findElement(By.xpath("//a[@data-testid='Header__LanguageSwitch']")).getText();
+		WebElement SearchResult = driver.findElement(By.xpath("//span[@data-testid='HotelSearchResult__resultsFoundCount']"));
+		String Actual = SearchResult.getText();
+		String Texsts [] = {"properties found in","عقار وجدنا في"};
+		String Text;
+		
+	    if (Language.equals("العربية")) {
+	    	Text = Texsts[0]; 
+		        
+	    } 
+	    else {
+		    	Text = Texsts[1]; 
+		    }
+	   
+		Assert.assertEquals(Actual.contains(Text), true);
+	}
+	//_______________________________________________________________________________________________________________________
+	@Test(priority = 13,enabled = true)
+	  // Note: Both old and new price elements share the same class ("Price__Value").
+    // This presents a challenge for distinguishing between the old and new prices as they cannot be differentiated by class alone.
+	public void PriceSortingTest() {
+		WebElement LowestToHighst =driver.findElement(By.xpath("//button[@data-testid='HotelSearchResult__sort__LOWEST_PRICE']"));
+		LowestToHighst.click();
+		WebElement container =  driver.findElement(By.cssSelector(".sc-htpNat.KtFsv.col-9"));
+		List<WebElement> Prices= container.findElements(By.className("Price__Value"));
+		System.out.println(Prices.size());
+		
+		String LowestPrice =Prices.get(0).getText();
+		String HighstPrice =Prices.get(Prices.size()-1).getText();
+		
+		int intLowestPrice = Integer.parseInt(LowestPrice);
+		int intHighstPrice = Integer.parseInt(HighstPrice);
+		
+		boolean isSorted = intHighstPrice > intLowestPrice;
+		Assert.assertEquals(isSorted, true);
+		
+	}
 
 }
