@@ -5,8 +5,8 @@
     <classes>
       <class name="homepage.AlmosaferClass">
         <methods>
-          <include name="PriceSortingTest"/>
           <include name="mysetup"/>
+          <include name="DefaultLanguageTest"/>
         </methods>
       </class> <!-- homepage.AlmosaferClass -->
     </classes>
