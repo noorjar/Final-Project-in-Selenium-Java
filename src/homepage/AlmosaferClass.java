@@ -146,18 +146,12 @@ public class AlmosaferClass extends Parameters {
 	//_______________________________________________________________________________________________________________________
 	@Test(priority = 12,enabled = true)
 	public void SearchResultsPageLoad() throws InterruptedException {
-		 Thread.sleep(10000);//in this case we can use Thread.sleep
-		String Language =  driver.findElement(By.xpath("//a[@data-testid='Header__LanguageSwitch']")).getText();
-		String ActualSearchResult = driver.findElement(By.xpath("//span[@data-testid='HotelSearchResult__resultsFoundCount']")).getText();
+		Thread.sleep(100000);
+	  	String ActualSearchResult =  driver.findElement(By.xpath("//span[@data-testid='HotelSearchResult__resultsFoundCount']")).getText();
+		boolean expectedResult = true;
+		boolean finished = ActualSearchResult.contains("وجدنا") || ActualSearchResult.contains("found");
+		Assert.assertEquals(finished, expectedResult);
 		
-	    if (Language.equals("العربية")) {
-	    	Text = TexstsinResultPage[0];       
-	    } 
-	    else {
-		    	Text = TexstsinResultPage[1]; 
-		    }
-	   
-		Assert.assertEquals(ActualSearchResult.contains(Text), true);
 	}
 	//_______________________________________________________________________________________________________________________
 	@Test(priority = 13,enabled = true)

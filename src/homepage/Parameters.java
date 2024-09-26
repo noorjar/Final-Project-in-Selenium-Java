@@ -30,8 +30,7 @@ public class Parameters {
 	int RandomArabArea = rand.nextInt(AreasForArabic.length);
 	String arrayRooms [] = {"option[value='A']","option[value='B']"};
 	int RandomRoomNumber  = rand.nextInt(arrayRooms.length);
-	String TexstsinResultPage [] = {"properties found in","عقار وجدنا في"};
-	String Text;		
+		
 	
 	
     

@@ -2,64 +2,64 @@
 <testng-results ignored="0" total="13" passed="13" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-24T03:37:16 EET" name="Default suite" finished-at="2024-08-24T03:37:37 EET" duration-ms="21247">
+  <suite started-at="2024-09-26T21:51:27 EET" name="Default suite" finished-at="2024-09-26T21:54:07 EET" duration-ms="159786">
     <groups>
     </groups>
-    <test started-at="2024-08-24T03:37:16 EET" name="Default test" finished-at="2024-08-24T03:37:37 EET" duration-ms="21247">
+    <test started-at="2024-09-26T21:51:27 EET" name="Default test" finished-at="2024-09-26T21:54:07 EET" duration-ms="159786">
       <class name="homepage.AlmosaferClass">
-        <test-method is-config="true" signature="mysetup()[pri:0, instance:homepage.AlmosaferClass@625e134e]" started-at="2024-08-24T03:37:16 EET" name="mysetup" finished-at="2024-08-24T03:37:19 EET" duration-ms="2925" status="PASS">
+        <test-method is-config="true" signature="mysetup()[pri:0, instance:homepage.AlmosaferClass@1e044120]" started-at="2024-09-26T21:51:27 EET" name="mysetup" finished-at="2024-09-26T21:52:03 EET" duration-ms="36317" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- mysetup -->
-        <test-method signature="DefaultLanguageTest()[pri:1, instance:homepage.AlmosaferClass@625e134e]" started-at="2024-08-24T03:37:19 EET" name="DefaultLanguageTest" finished-at="2024-08-24T03:37:19 EET" duration-ms="45" status="PASS">
+        <test-method signature="DefaultLanguageTest()[pri:1, instance:homepage.AlmosaferClass@1e044120]" started-at="2024-09-26T21:52:03 EET" name="DefaultLanguageTest" finished-at="2024-09-26T21:52:03 EET" duration-ms="33" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- DefaultLanguageTest -->
-        <test-method signature="DefaultCurrencyTest()[pri:2, instance:homepage.AlmosaferClass@625e134e]" started-at="2024-08-24T03:37:19 EET" name="DefaultCurrencyTest" finished-at="2024-08-24T03:37:19 EET" duration-ms="41" status="PASS">
+        <test-method signature="DefaultCurrencyTest()[pri:2, instance:homepage.AlmosaferClass@1e044120]" started-at="2024-09-26T21:52:03 EET" name="DefaultCurrencyTest" finished-at="2024-09-26T21:52:03 EET" duration-ms="26" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- DefaultCurrencyTest -->
-        <test-method signature="ContactInformationVerification()[pri:3, instance:homepage.AlmosaferClass@625e134e]" started-at="2024-08-24T03:37:19 EET" name="ContactInformationVerification" finished-at="2024-08-24T03:37:19 EET" duration-ms="30" status="PASS">
+        <test-method signature="ContactInformationVerification()[pri:3, instance:homepage.AlmosaferClass@1e044120]" started-at="2024-09-26T21:52:03 EET" name="ContactInformationVerification" finished-at="2024-09-26T21:52:03 EET" duration-ms="21" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ContactInformationVerification -->
-        <test-method signature="LogoVerification()[pri:4, instance:homepage.AlmosaferClass@625e134e]" started-at="2024-08-24T03:37:19 EET" name="LogoVerification" finished-at="2024-08-24T03:37:19 EET" duration-ms="41" status="PASS">
+        <test-method signature="LogoVerification()[pri:4, instance:homepage.AlmosaferClass@1e044120]" started-at="2024-09-26T21:52:03 EET" name="LogoVerification" finished-at="2024-09-26T21:52:03 EET" duration-ms="37" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LogoVerification -->
-        <test-method signature="HotelSearchTabDefaultState()[pri:5, instance:homepage.AlmosaferClass@625e134e]" started-at="2024-08-24T03:37:19 EET" name="HotelSearchTabDefaultState" finished-at="2024-08-24T03:37:19 EET" duration-ms="26" status="PASS">
+        <test-method signature="HotelSearchTabDefaultState()[pri:5, instance:homepage.AlmosaferClass@1e044120]" started-at="2024-09-26T21:52:03 EET" name="HotelSearchTabDefaultState" finished-at="2024-09-26T21:52:03 EET" duration-ms="21" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- HotelSearchTabDefaultState -->
-        <test-method signature="FlightDepartureDate()[pri:6, instance:homepage.AlmosaferClass@625e134e]" started-at="2024-08-24T03:37:19 EET" name="FlightDepartureDate" finished-at="2024-08-24T03:37:19 EET" duration-ms="23" status="PASS">
+        <test-method signature="FlightDepartureDate()[pri:6, instance:homepage.AlmosaferClass@1e044120]" started-at="2024-09-26T21:52:03 EET" name="FlightDepartureDate" finished-at="2024-09-26T21:52:03 EET" duration-ms="21" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- FlightDepartureDate -->
-        <test-method signature="FlightReturnDate()[pri:6, instance:homepage.AlmosaferClass@625e134e]" started-at="2024-08-24T03:37:19 EET" name="FlightReturnDate" finished-at="2024-08-24T03:37:19 EET" duration-ms="19" status="PASS">
+        <test-method signature="FlightReturnDate()[pri:6, instance:homepage.AlmosaferClass@1e044120]" started-at="2024-09-26T21:52:03 EET" name="FlightReturnDate" finished-at="2024-09-26T21:52:03 EET" duration-ms="23" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- FlightReturnDate -->
-        <test-method signature="LanguageSwitchTest()[pri:7, instance:homepage.AlmosaferClass@625e134e]" started-at="2024-08-24T03:37:19 EET" name="LanguageSwitchTest" finished-at="2024-08-24T03:37:20 EET" duration-ms="828" status="PASS">
+        <test-method signature="LanguageSwitchTest()[pri:7, instance:homepage.AlmosaferClass@1e044120]" started-at="2024-09-26T21:52:03 EET" name="LanguageSwitchTest" finished-at="2024-09-26T21:52:15 EET" duration-ms="11407" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LanguageSwitchTest -->
-        <test-method signature="HotelSearchTest()[pri:9, instance:homepage.AlmosaferClass@625e134e]" started-at="2024-08-24T03:37:20 EET" name="HotelSearchTest" finished-at="2024-08-24T03:37:24 EET" duration-ms="3543" status="PASS">
+        <test-method signature="HotelSearchTest()[pri:9, instance:homepage.AlmosaferClass@1e044120]" started-at="2024-09-26T21:52:15 EET" name="HotelSearchTest" finished-at="2024-09-26T21:52:24 EET" duration-ms="8634" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- HotelSearchTest -->
-        <test-method signature="RoomSelectionTest()[pri:10, instance:homepage.AlmosaferClass@625e134e]" started-at="2024-08-24T03:37:24 EET" name="RoomSelectionTest" finished-at="2024-08-24T03:37:25 EET" duration-ms="1310" status="PASS">
+        <test-method signature="RoomSelectionTest()[pri:10, instance:homepage.AlmosaferClass@1e044120]" started-at="2024-09-26T21:52:24 EET" name="RoomSelectionTest" finished-at="2024-09-26T21:52:25 EET" duration-ms="1242" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- RoomSelectionTest -->
-        <test-method signature="SearchButtonFunctionality()[pri:11, instance:homepage.AlmosaferClass@625e134e]" started-at="2024-08-24T03:37:25 EET" name="SearchButtonFunctionality" finished-at="2024-08-24T03:37:26 EET" duration-ms="1083" status="PASS">
+        <test-method signature="SearchButtonFunctionality()[pri:11, instance:homepage.AlmosaferClass@1e044120]" started-at="2024-09-26T21:52:25 EET" name="SearchButtonFunctionality" finished-at="2024-09-26T21:52:26 EET" duration-ms="1233" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SearchButtonFunctionality -->
-        <test-method signature="SearchResultsPageLoad()[pri:12, instance:homepage.AlmosaferClass@625e134e]" started-at="2024-08-24T03:37:26 EET" name="SearchResultsPageLoad" finished-at="2024-08-24T03:37:37 EET" duration-ms="10347" status="PASS">
+        <test-method signature="SearchResultsPageLoad()[pri:12, instance:homepage.AlmosaferClass@1e044120]" started-at="2024-09-26T21:52:26 EET" name="SearchResultsPageLoad" finished-at="2024-09-26T21:54:06 EET" duration-ms="100058" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SearchResultsPageLoad -->
-        <test-method signature="PriceSortingTest()[pri:13, instance:homepage.AlmosaferClass@625e134e]" started-at="2024-08-24T03:37:37 EET" name="PriceSortingTest" finished-at="2024-08-24T03:37:37 EET" duration-ms="945" status="PASS">
+        <test-method signature="PriceSortingTest()[pri:13, instance:homepage.AlmosaferClass@1e044120]" started-at="2024-09-26T21:54:06 EET" name="PriceSortingTest" finished-at="2024-09-26T21:54:07 EET" duration-ms="671" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- PriceSortingTest -->

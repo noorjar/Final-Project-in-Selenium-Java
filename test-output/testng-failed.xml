@@ -6,7 +6,7 @@
       <class name="homepage.AlmosaferClass">
         <methods>
           <include name="mysetup"/>
-          <include name="DefaultLanguageTest"/>
+          <include name="SearchResultsPageLoad"/>
         </methods>
       </class> <!-- homepage.AlmosaferClass -->
     </classes>
